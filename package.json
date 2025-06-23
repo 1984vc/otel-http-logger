@@ -1,6 +1,6 @@
 {
-  "name": "otel-http-logger",
-  "version": "1.0.0",
+  "name": "@1984vc/otel-http-logger",
+  "version": "0.0.1",
   "description": "A lightweight OpenTelemetry logger for Node.js and browsers with zero dependencies",
   "main": "dist/index.js",
   "module": "dist/index.mjs",

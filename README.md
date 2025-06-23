@@ -13,13 +13,13 @@ A lightweight OpenTelemetry logger for Node.js and browsers with zero dependenci
 ## Installation
 
 ```bash
-npm install otel-http-logger
+npm install @1984vc/otel-http-logger
 ```
 
 Or with yarn:
 
 ```bash
-yarn add otel-http-logger
+yarn add @1984vc/otel-http-logger
 ```
 
 ## Quick Start
@@ -59,9 +59,7 @@ try {
 
 ## OTLP Logging
 
-### HyperDX Integration
-
-This logger includes built-in support for [HyperDX](https://www.hyperdx.io/), a modern observability platform:
+### HyperDX Example
 
 ```javascript
 const { initializeLogger } = require('otel-http-logger');
@@ -82,30 +80,6 @@ const logger = initializeLogger({
 
 // Log as usual
 logger.info('This will be sent to HyperDX');
-
-// Important: Flush logs before your application exits
-await logger.flush();
-```
-
-### Generic OTLP Collector
-
-To send logs to any other OpenTelemetry collector:
-
-```javascript
-const { initializeLogger } = require('otel-http-logger');
-
-// Initialize a logger with OTLP configuration
-const logger = initializeLogger({
-  endpoint: 'https://your-otlp-collector/v1/logs',
-  headers: {
-    'Authorization': 'Bearer your-token' // If needed
-  },
-  serviceName: 'my-service',
-  environment: 'production'
-});
-
-// Log as usual
-logger.info('This will be sent to the OTLP collector');
 
 // Important: Flush logs before your application exits
 await logger.flush();
@@ -221,7 +195,7 @@ See the [examples](./examples) directory for more detailed examples:
 - [Basic Usage](./examples/basic.js) - Demonstrates basic logging and HyperDX integration
 - [Context Propagation](./examples/context.js) - Shows how to use async context for logging
 
-To run the examples with HyperDX integration:
+To run the examples with [HyperDX](https://hyperdx.io) integration:
 
 ```bash
 # Set your HyperDX API key
@@ -231,31 +205,6 @@ export HYPERDX_API_KEY=your_api_key_here
 node examples/basic.js
 node examples/context.js
 ```
-
-## CI/CD
-
-This project uses GitHub Actions for continuous integration and deployment:
-
-### Testing
-
-All pushes and pull requests trigger automated tests across multiple Node.js versions to ensure compatibility.
-
-### Deployment to NPM
-
-The package is automatically published to NPM when a new version tag is pushed:
-
-1. Create a new version tag following semantic versioning (e.g., `v1.2.3`)
-2. Push the tag to GitHub:
-   ```bash
-   git tag v1.2.3
-   git push origin v1.2.3
-   ```
-3. GitHub Actions will automatically:
-   - Run all tests
-   - Build the package
-   - Publish to NPM if all tests pass
-
-**Note:** To enable NPM publishing, you need to add an NPM token as a GitHub repository secret named `NPM_TOKEN`.
 
 ## License
 

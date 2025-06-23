@@ -13,23 +13,27 @@ jobs:
   publish:
     needs: [test]
     runs-on: ubuntu-latest
-    
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       
-      - name: Use Node.js
-        uses: actions/setup-node@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
-          node-version: '18.x'
+          node-version: '20'
+          cache: 'npm'
           registry-url: 'https://registry.npmjs.org'
+          scope: '@1984vc'
           
       - name: Install dependencies
         run: npm ci
         
+      - name: Run tests
+        run: npm test
+        
       - name: Build
         run: npm run build
         
-      - name: Publish to NPM
-        run: npm publish
+      - name: Publish to npm
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

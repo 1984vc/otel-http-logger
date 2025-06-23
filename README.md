@@ -1,6 +1,6 @@
 # otel-http-logger
 
-A lightweight OpenTelemetry logger for Node.js and browsers with zero dependencies and support for async context propagation. Includes built-in support for HyperDX.
+A lightweight OpenTelemetry logger for Node.js, Bun, and browsers with zero dependencies and support for async context propagation. Includes built-in support for HyperDX.
 
 ## Features
 
@@ -20,6 +20,12 @@ Or with yarn:
 
 ```bash
 yarn add @1984vc/otel-http-logger
+```
+
+Or with bun:
+
+```bash
+bun add @1984vc/otel-http-logger
 ```
 
 ## Quick Start
@@ -201,9 +207,13 @@ To run the examples with [HyperDX](https://hyperdx.io) integration:
 # Set your HyperDX API key
 export HYPERDX_API_KEY=your_api_key_here
 
-# Run the examples
+# Run the examples with Node.js
 node examples/basic.js
 node examples/context.js
+
+# Or run with Bun
+bun examples/basic.js
+bun examples/context.js
 ```
 
 ## License

@@ -1,7 +1,7 @@
 {
   "name": "@1984vc/otel-http-logger",
   "version": "0.0.1",
-  "description": "A lightweight OpenTelemetry logger for Node.js and browsers with zero dependencies",
+  "description": "A lightweight OpenTelemetry logger for Node.js, Bun, and browsers with zero dependencies",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
@@ -33,7 +33,8 @@
     "logger",
     "otlp",
     "tracing",
-    "observability"
+    "observability",
+    "bun"
   ],
   "author": "",
   "license": "MIT",
@@ -44,6 +45,7 @@
     "vitest": "^1.6.1"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=18.0.0",
+    "bun": ">=1.0.0"
   }
 }
